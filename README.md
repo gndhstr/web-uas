@@ -3,6 +3,6 @@
 ## Anggota Kelompok
 
 - Gandhi Satria Mukti (5302421071)
-- tidak ada
+- Bimo Alamsyah (5302421076)
 
 
