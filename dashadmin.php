@@ -57,28 +57,28 @@ if (isset($_GET['cari_ds'])) {
           <!--Table head-->
           <!--Table body-->
           <tbody>
-            <?php foreach (mysqli_fetch_all($result_matkul) as $index => $data_matkul): ?>
-            <tr>
-              <th scope="row">
-                <?= $index + 1 ?>
-              </th>
-              <td>
-                <?= $data_matkul[0]; ?>
-              </td>
-              <td>
-                <?= $data_matkul[1]; ?>
-              </td>
-              <td>
-                <?= $data_matkul[2]; ?>
-              </td>
-              <td>
-                <?= $data_matkul[3]; ?>
-              </td>
-              <td>
-                <a href="form/ubahdosen.php" class="btn btn-primary ">Update</a>
-                <a href="#" class="btn btn-danger ">Hapus</a>
-              </td>
-            </tr>
+            <?php foreach (mysqli_fetch_all($result_matkul) as $index => $data_matkul) : ?>
+              <tr>
+                <th scope="row">
+                  <?= $index + 1 ?>
+                </th>
+                <td>
+                  <?= $data_matkul[0]; ?>
+                </td>
+                <td>
+                  <?= $data_matkul[1]; ?>
+                </td>
+                <td>
+                  <?= $data_matkul[2]; ?>
+                </td>
+                <td>
+                  <?= $data_matkul[3]; ?>
+                </td>
+                <td>
+                  <a href="form/ubahmatkul.php" class="btn btn-primary ">Update</a>
+                  <a href="delete/matkul.php?kode=<?= $data_matkul[0]; ?>" class="btn btn-danger ">Hapus</a>
+                </td>
+              </tr>
             <?php endforeach; ?>
           </tbody>
           <!--Table body-->
@@ -88,7 +88,7 @@ if (isset($_GET['cari_ds'])) {
 
     </div>
 
-    <div class="card" >
+    <div class="card">
       <div class="card-body">
         <!-- Grid row -->
         <div class="row">
@@ -119,22 +119,22 @@ if (isset($_GET['cari_ds'])) {
           <!--Table head-->
           <!--Table body-->
           <tbody>
-            <?php foreach (mysqli_fetch_all($result_dosen) as $index => $data_dosen): ?>
-            <tr>
-              <th scope="row">
-                <?= $index + 1 ?>
-              </th>
-              <td>
-                <?= $data_dosen[0]; ?>
-              </td>
-              <td>
-                <?= $data_dosen[1]; ?>
-              </td>
-              <td>
-                <a href="form/ubahdosen.php" class="btn btn-primary ">Update</a>
-                <a href="" class="btn btn-danger ">Hapus</a>
-              </td>
-            </tr>
+            <?php foreach (mysqli_fetch_all($result_dosen) as $index => $data_dosen) : ?>
+              <tr>
+                <th scope="row">
+                  <?= $index + 1 ?>
+                </th>
+                <td>
+                  <?= $data_dosen[0]; ?>
+                </td>
+                <td>
+                  <?= $data_dosen[1]; ?>
+                </td>
+                <td>
+                  <a href="form/ubahdosen.php" class="btn btn-primary ">Update</a>
+                  <a href="delete/dosen.php?nip=<?= $data_dosen[0]; ?>"  class="btn btn-danger ">Hapus</a>
+                </td>
+              </tr>
             <?php endforeach; ?>
           </tbody>
           <!--Table body-->
