@@ -16,6 +16,7 @@ if (isset($_POST['login'])) {
   var_dump($data);
   var_dump($cek);
   if ($cek) {
+    $_SESSION['id'] = $data['id_login'];
     $_SESSION['nama'] = $data['nama'];
     $_SESSION['username'] = $username;
     $_SESSION['jabatan'] = $data['username'];
