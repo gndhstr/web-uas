@@ -4,7 +4,6 @@ include "koneksi.php";
 
 if (!isset($_SESSION['jabatan'])) {
   header("location: login.php");
-  
 }
 ?>
 
@@ -24,9 +23,7 @@ if (!isset($_SESSION['jabatan'])) {
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -64,6 +61,9 @@ if (!isset($_SESSION['jabatan'])) {
 
       <nav id="navbar" class="navbar">
         <ul>
+          <li>
+            <?= $_SESSION['nama']; ?>
+          </li>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">Dashboard</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
@@ -140,12 +140,12 @@ if (!isset($_SESSION['jabatan'])) {
 
     <!--MDB Tables-->
     <?php
-        if ($_SESSION['jabatan'] == "admin") {
-          include "dashadmin.php";
-        } else {
-          include "dashtendik.php";
-        }
-        ?>
+    if ($_SESSION['jabatan'] == "admin") {
+      include "dashadmin.php";
+    } else {
+      include "dashtendik.php";
+    }
+    ?>
 
     <!-- ======= Team Section ======= -->
     <section id="team" class="team">
@@ -161,9 +161,7 @@ if (!isset($_SESSION['jabatan'])) {
 
           <div class="col-lg-6">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img
-                  src="https://media.discordapp.net/attachments/968176593547702322/1026405915534037043/IMG-20210606-WA0000.jpg?width=460&height=460"
-                  class="img-fluid" alt=""></div>
+              <div class="pic"><img src="https://media.discordapp.net/attachments/968176593547702322/1026405915534037043/IMG-20210606-WA0000.jpg?width=460&height=460" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Bimo Alam Syah</h4>
                 <span>Mahasiswa</span>
@@ -243,8 +241,7 @@ if (!isset($_SESSION['jabatan'])) {
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="https://cdn.discordapp.com/attachments/875383813411311627/1042824944549122069/PakRiska_1.jpeg"
-                  class="testimonial-img" alt="">
+                <img src="https://cdn.discordapp.com/attachments/875383813411311627/1042824944549122069/PakRiska_1.jpeg" class="testimonial-img" alt="">
                 <h3>Riska Dami Ristanto, S.Pd., M.Pd.</h3>
                 <h4>Dosen Pengampu</h4>
                 <p>
@@ -255,9 +252,7 @@ if (!isset($_SESSION['jabatan'])) {
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img
-                  src="https://cdn.discordapp.com/attachments/875383813411311627/1042824944343580803/Pak_Febry_1.jpeg"
-                  class="testimonial-img" alt="">
+                <img src="https://cdn.discordapp.com/attachments/875383813411311627/1042824944343580803/Pak_Febry_1.jpeg" class="testimonial-img" alt="">
                 <h3>Febry Putra Rochim, S.T., M.Eng.</h3>
                 <h4>Dosen Pengampu</h4>
                 <p>
@@ -292,8 +287,7 @@ if (!isset($_SESSION['jabatan'])) {
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>

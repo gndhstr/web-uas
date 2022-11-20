@@ -3,7 +3,7 @@ include "koneksi.php";
 
 $result_dosen = mysqli_query($koneksi, "SELECT * FROM dosen");
 
-$result_matkul = mysqli_query($koneksi, "SELECT * FROM matkul");
+$result_matkul = mysqli_query($koneksi, "SELECT * FROM matkul ORDER BY jadwal_matkul");
 
 if (isset($_GET['cari_mk'])) {
   $cari_mk = $_GET['cari_mk'];
@@ -18,6 +18,11 @@ if (isset($_GET['cari_ds'])) {
   $result_dosen = mysqli_query($koneksi, "SELECT * FROM dosen 
   WHERE nip LIKE '%$cari_ds%'
   OR nama_dosen LIKE '%$cari_ds%'");
+}
+
+if (isset($_GET['hari_ini'])) {
+  $waktu =  date("Y-m-d");
+  $result_matkul = mysqli_query($koneksi, "SELECT * FROM matkul WHERE jadwal_matkul='$waktu' ORDER BY jadwal_matkul");
 }
 ?>
 <section id="about" class="about">
@@ -35,6 +40,7 @@ if (isset($_GET['cari_ds'])) {
               <div class="input-group">
                 <input type="text" class="form-control rounded" placeholder="Search" name="cari_mk" />
                 <button type="submit" class="btn btn-outline-primary">search</button>
+                <input type="submit" class="btn btn-primary" value="Tampilkan hari ini" name="hari_ini" />
               </div>
             </form>
           </div>
@@ -132,7 +138,7 @@ if (isset($_GET['cari_ds'])) {
                 </td>
                 <td>
                   <a href="form/ubahdosen.php" class="btn btn-primary ">Update</a>
-                  <a href="delete/dosen.php?nip=<?= $data_dosen[0]; ?>"  class="btn btn-danger ">Hapus</a>
+                  <a href="delete/dosen.php?nip=<?= $data_dosen[0]; ?>" class="btn btn-danger ">Hapus</a>
                 </td>
               </tr>
             <?php endforeach; ?>

@@ -1,23 +1,36 @@
 <?php
 include "koneksi.php";
 
-$result_dosen = mysqli_query($koneksi, "SELECT * FROM dosen");
+$id_login = $_SESSION['id'];
+$result_dosen = mysqli_query($koneksi, "SELECT * FROM dosen WHERE login_id_login='$id_login'");
 
-$result_matkul = mysqli_query($koneksi, "SELECT * FROM matkul");
+$result_matkul = mysqli_query($koneksi, "SELECT * FROM matkul WHERE login_id_login='$id_login'");
 
 if (isset($_GET['cari_mk'])) {
   $cari_mk = $_GET['cari_mk'];
-  $result_matkul = mysqli_query($koneksi, "SELECT * FROM matkul 
+
+  if ($cari_mk == "") {
+    $result_matkul = mysqli_query($koneksi, "SELECT * FROM matkul WHERE login_id_login='$id_login'");
+  } else {
+    $result_matkul = mysqli_query($koneksi, "SELECT * FROM matkul 
   WHERE nama_matkul LIKE '%$cari_mk%'
   OR kode_matkul LIKE '%$cari_mk%'
-  OR dosen_nama_dosen LIKE '%$cari_mk%'");
+    OR dosen_nama_dosen LIKE '%$cari_mk%'
+    AND login_id_login='$id_login'");
+  }
 }
 
 if (isset($_GET['cari_ds'])) {
   $cari_ds = $_GET['cari_ds'];
-  $result_dosen = mysqli_query($koneksi, "SELECT * FROM dosen 
+
+  if ($cari_ds == "") {
+    $result_dosen = mysqli_query($koneksi, "SELECT * FROM dosen WHERE login_id_login='$id_login'");
+  } else {
+    $result_dosen = mysqli_query($koneksi, "SELECT * FROM dosen 
   WHERE nip LIKE '%$cari_ds%'
-  OR nama_dosen LIKE '%$cari_ds%'");
+    OR nama_dosen LIKE '%$cari_ds%'
+    AND login_id_login='$id_login'");
+  }
 }
 ?>
 <section id="about" class="about">
@@ -56,24 +69,24 @@ if (isset($_GET['cari_ds'])) {
           <!--Table head-->
           <!--Table body-->
           <tbody>
-            <?php foreach (mysqli_fetch_all($result_matkul) as $index => $data_matkul): ?>
-            <tr>
-              <th scope="row">
-                <?= $index + 1 ?>
-              </th>
-              <td>
-                <?= $data_matkul[0]; ?>
-              </td>
-              <td>
-                <?= $data_matkul[1]; ?>
-              </td>
-              <td>
-                <?= $data_matkul[2]; ?>
-              </td>
-              <td>
-                <?= $data_matkul[3]; ?>
-              </td>
-            </tr>
+            <?php foreach (mysqli_fetch_all($result_matkul) as $index => $data_matkul) : ?>
+              <tr>
+                <th scope="row">
+                  <?= $index + 1 ?>
+                </th>
+                <td>
+                  <?= $data_matkul[0]; ?>
+                </td>
+                <td>
+                  <?= $data_matkul[1]; ?>
+                </td>
+                <td>
+                  <?= $data_matkul[2]; ?>
+                </td>
+                <td>
+                  <?= $data_matkul[3]; ?>
+                </td>
+              </tr>
             <?php endforeach; ?>
           </tbody>
           <!--Table body-->
@@ -115,18 +128,18 @@ if (isset($_GET['cari_ds'])) {
           <!--Table head-->
           <!--Table body-->
           <tbody>
-            <?php foreach (mysqli_fetch_all($result_dosen) as $index => $data_dosen): ?>
-            <tr>
-              <th scope="row">
-                <?= $index + 1 ?>
-              </th>
-              <td>
-                <?= $data_dosen[0]; ?>
-              </td>
-              <td>
-                <?= $data_dosen[1]; ?>
-              </td>
-            </tr>
+            <?php foreach (mysqli_fetch_all($result_dosen) as $index => $data_dosen) : ?>
+              <tr>
+                <th scope="row">
+                  <?= $index + 1 ?>
+                </th>
+                <td>
+                  <?= $data_dosen[0]; ?>
+                </td>
+                <td>
+                  <?= $data_dosen[1]; ?>
+                </td>
+              </tr>
             <?php endforeach; ?>
           </tbody>
           <!--Table body-->
