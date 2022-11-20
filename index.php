@@ -5,6 +5,7 @@ include "koneksi.php";
 if (!isset($_SESSION['jabatan'])) {
   header("location: login.php");
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +55,7 @@ if (!isset($_SESSION['jabatan'])) {
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1><a href="index.html">ABC <span>UNIVERSITY</span></a></h1>
+        <h1><a href="#">ABC <span>UNIVERSITY</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -62,7 +63,11 @@ if (!isset($_SESSION['jabatan'])) {
       <nav id="navbar" class="navbar">
         <ul>
           <li>
-            <?= $_SESSION['nama']; ?>
+            <?php if ($_SESSION['jabatan'] == "admin") : ?>
+              <i class="bi bi-person-fill text-danger"></i> <?= $_SESSION['nama']; ?>
+            <?php else : ?>
+              <i class="bi bi-person-fill text-success"></i> <?= $_SESSION['nama']; ?>
+            <?php endif; ?>
           </li>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">Dashboard</a></li>
@@ -282,7 +287,7 @@ if (!isset($_SESSION['jabatan'])) {
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mybiz-free-business-bootstrap-theme/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Supported by <a href="https://github.com/yusrilarzaqi/" target="_blank">Yusril Arzaqi</a>
       </div>
     </div>
   </footer><!-- End Footer -->

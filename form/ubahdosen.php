@@ -1,3 +1,19 @@
+<?php
+// ngingklud fungsi
+include "../lib/function.php";
+// ngecek nak kw looing ngowo akun admin
+session_start();
+if ($_SESSION['jabatan'] != "admin") {
+  header("Location: ../index.php");
+}
+
+$old_nip = $_GET['nip'];
+
+if (isset($old_nip)) {
+  $data = get("SELECT * FROM dosen WHERE nip='$old_nip'");
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,6 +66,15 @@
         <!-- <a href="index.html"><img src="../assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li>
+            <?= $_SESSION['nama']; ?>
+          </li>
+          <li><a class="nav-link scrollto" href="../index.php">Kembali</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
     </div>
   </header><!-- End Header -->
 
@@ -80,13 +105,13 @@
                     <br>
                     <!-- Email input -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example3" class="form-control" name="nip" />
+                      <input type="text" id="form3Example3" class="form-control" name="nip" value="<?= $old_nip; ?>" />
                       <label class="form-label" for="form3Example3">NIP Dosen</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example4" class="form-control" name="dosen" />
+                        <input type="text" id="form3Example4" class="form-control" name="dosen" value="<?= $data['nama_dosen']; ?>" />
                       <label class="form-label" for="form3Example4">Nama Dosen</label>
                     </div>
 
@@ -105,7 +130,6 @@
       <!-- Jumbotron -->
     </section>
     <!-- Section: Design Block -->
-
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->

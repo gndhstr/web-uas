@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if ($_SESSION['jabatan'] != 'tendik') {
+  header("Location: ../index.php");
+}
+
 include "../koneksi.php";
 $resultdosen = mysqli_query($koneksi, "SELECT * FROM dosen");
 
@@ -74,6 +80,15 @@ if (isset($_POST['tambah'])) {
                 <!-- <a href="index.html"><img src="../assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
 
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li>
+            <?= $_SESSION['nama']; ?>
+          </li>
+          <li><a class="nav-link scrollto" href="../index.php">Kembali</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
         </div>
     </header><!-- End Header -->
 
