@@ -1,21 +1,24 @@
 <?php
+include "../lib/function.php";
 
 session_start();
-// checking if user jabatan not tendik
-if ($_SESSION['jabatan'] != 'tendik') {
+// checking if user jabatan not admin
+if ($_SESSION['jabatan'] != 'admin') {
   header("Location: ../index.php");
 }
 
-include "../koneksi.php";
 if (isset($_POST['tambah'])) {
-  $dosen = $_POST['dosen'];
-  $nip = $_POST['nip'];
+  $nama = $_POST['nama'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  
+  $result = query("INSERT INTO login VALUES (NULL, '$nama', '$username', MD5('$password'), 'tendik')");
 
-  $query = mysqli_query($koneksi, "INSERT INTO dosen VALUES('$nip','$dosen')");
-  if ($query) {
-    header("Location:../index.php");
+  if ($result) {
+    header("Location: ../index.php");
   }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +28,7 @@ if (isset($_POST['tambah'])) {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Inner Page - MyBiz Bootstrap Template</title>
+  <title>Tambah Akun Tenaga Kependidikan</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -34,9 +37,7 @@ if (isset($_POST['tambah'])) {
   <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -93,11 +94,11 @@ if (isset($_POST['tambah'])) {
           <div class="row gx-lg-5 align-items-center">
             <div class="col-lg-6 mb-5 mb-lg-0">
               <h1 class="my-5 display-3 fw-bold ls-tight">
-                Tambah Data<br />
-                <span class="coler">Dosen</span>
+                Tambah Akun<br />
+                <span class="coler">Tenaga Kependidikan</span>
               </h1>
               <p style="color: hsl(217, 10%, 50.8%)">
-                Tambah data dosen universitas ABC
+                Tambah akun Tenaga Kependidikan universitas ABC
               </p>
             </div>
 
@@ -105,25 +106,33 @@ if (isset($_POST['tambah'])) {
               <div class="card">
                 <div class="card-body py-5 px-md-5">
 
-                  <form action="tambahdosen.php" method="post">
+                  <form action="tambahakun.php" method="post">
 
-                    <h3>Tambah Data</h3>
+                    <h3>Tambah Akun</h3>
                     <br>
-                    <!-- Email input -->
+                    <!-- Input nama -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example3" class="form-control" name="nip" />
-                      <label class="form-label" for="form3Example3">NIP Dosen</label>
+                      <input type="text" id="form3Example3" class="form-control" name="nama" />
+                      <label class="form-label" for="form3Example3">Nama</label>
                     </div>
 
-                    <!-- Password input -->
+                    <!-- input username -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example4" class="form-control" name="dosen" />
-                      <label class="form-label" for="form3Example4">Nama Dosen</label>
+                      <input type="text" id="form3Example4" class="form-control" name="username" />
+                      <label class="form-label" for="form3Example4">Username</label>
+                    </div>
+
+                    <!-- password username -->
+                    <div class="form-outline mb-4 input-group">
+                      <input type="password" id="password" class="form-control mr-1 rounded" name="password" placeholder="Password" />
+                      <div class="input-group-append">
+                        <button type="button" id="eye" class="input-group-text"><i class="bi bi-eye-slash" id="eye-icon" aria-hidden="true"></i></button>
+                      </div>
                     </div>
 
                     <!-- Submit button -->
                     <button type="submit" class="btn bgcoler btn-block mb-4" name="tambah">
-                      Tambah Data
+                      Tambah Akun
                     </button>
 
                   </form>
@@ -155,8 +164,7 @@ if (isset($_POST['tambah'])) {
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -168,6 +176,23 @@ if (isset($_POST['tambah'])) {
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+
+  <script>
+    const eye = document.getElementById("eye");
+    const eye_icon = document.getElementById("eye-icon");
+    const password = document.getElementById("password");
+
+    eye.addEventListener('click', () => {
+      const check_type = password.getAttribute("type");
+      if (check_type == "password") {
+        password.setAttribute("type", "text");
+        eye_icon.className = "bi bi-eye";
+      } else {
+        password.setAttribute("type", "password");
+        eye_icon.className = "bi bi-eye-slash";
+      }
+    });
+  </script>
 
 </body>
 
