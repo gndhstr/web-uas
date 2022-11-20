@@ -163,7 +163,7 @@ if (isset($_GET['cari_akun'])) {
     </div>
 
     <!-- Table Akun -->
-    <div class="card">
+    <div class="card mt-4">
       <div class="card-body">
         <!-- Grid row -->
         <div class="row">
