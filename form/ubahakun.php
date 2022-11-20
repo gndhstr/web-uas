@@ -8,10 +8,10 @@ if ($_SESSION['jabatan'] != "admin") {
   header("Location: ../index.php");
 }
 
-$old_nip = $_GET['nip'];
+$old_id = $_GET['id'];
 
-if (isset($old_nip)) {
-  $data = get("SELECT * FROM login WHERE nip='$old_nip'");
+if (isset($old_id)) {
+  $data = get("SELECT * FROM login WHERE id='$old_id'");
 }
 
 ?>
