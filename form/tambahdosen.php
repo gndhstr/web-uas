@@ -10,8 +10,9 @@ include "../koneksi.php";
 if (isset($_POST['tambah'])) {
   $dosen = $_POST['dosen'];
   $nip = $_POST['nip'];
+  $id = $_SESSION['id'];
 
-  $query = mysqli_query($koneksi, "INSERT INTO dosen VALUES('$nip','$dosen')");
+  $query = mysqli_query($koneksi, "INSERT INTO dosen VALUES('$nip','$dosen','$id')");
   if ($query) {
     header("Location:../index.php");
   }

@@ -18,9 +18,10 @@ if (isset($_POST['tambah'])) {
     $matkul = $_POST['matkul'];
     $jadwal = $_POST['jadwal'];
     $dosen = $_POST['namadosen'];
+    $id = $_SESSION['id'];
 
 
-    $query = mysqli_query($koneksi, "INSERT INTO matkul VALUES('$kode','$matkul','$jadwal','$dosen')");
+    $query = mysqli_query($koneksi, "INSERT INTO matkul VALUES('$kode','$matkul','$jadwal','$dosen','$id')");
     if ($query) {
         header("Location:../index.php");
     }
