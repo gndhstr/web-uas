@@ -183,16 +183,15 @@ if (!isset($_SESSION['jabatan'])) {
 
           <div class="col-lg-6 mt-4 mt-lg-0">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="https://cdn.discordapp.com/attachments/875383813411311627/1043561796524593243/xubw7q.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Gandhi Satria Mukti</h4>
                 <span>Mahasiswa</span>
                 <p>NIM : 5302421071</p>
                 <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                  <a href="https://github.com/gndhstr"><i class="ri-github-fill"></i></a>
+                  <a href="https://www.instagram.com/gndhstr/"><i class="ri-instagram-fill"></i></a>
+                  <a href="www.linkedin.com/in/gndhstr"> <i class="ri-linkedin-box-fill"></i> </a>
                 </div>
               </div>
             </div>
