@@ -10,8 +10,31 @@ if ($_SESSION['jabatan'] != "admin") {
 $old_nip = $_GET['nip'];
 
 if (isset($old_nip)) {
-  $data = get("SELECT * FROM dosen WHERE nip='$old_nip'");
+  $result = get("SELECT * FROM dosen WHERE nip='$old_nip'");
+
 }
+
+if (isset($_POST['Ubah'])) {
+
+  $nama_dosen = $_POST['dosen'];
+  $nip = $_POST['nip'];
+  $id = $result['login_id_login'];
+  $query = "UPDATE dosen SET
+
+  nip = '$nip',
+  nama_dosen = '$nama_dosen',
+  login_id_login = $id
+
+  WHERE nip = '$old_nip'";
+  // var_dump($query);
+  $result = mysqli_query($koneksi, $query);
+
+  if ($result) {
+    header("Location: ../index.php");
+  }
+}
+
+
 
 ?>
 
@@ -31,7 +54,9 @@ if (isset($old_nip)) {
   <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -99,7 +124,7 @@ if (isset($old_nip)) {
             <div class="col-lg-6 mb-5 mb-lg-0">
               <div class="card">
                 <div class="card-body py-5 px-md-5">
-                  <form action="login.php" method="post">
+                  <form action="ubahdosen.php?nip=<?=$old_nip;?>" method="post">
 
                     <h3>Ubah Data</h3>
                     <br>
@@ -111,9 +136,14 @@ if (isset($old_nip)) {
 
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                        <input type="text" id="form3Example4" class="form-control" name="dosen" value="<?= $data['nama_dosen']; ?>" />
+                      <input type="text" id="form3Example4" class="form-control" name="dosen"
+                        value="<?= $result['nama_dosen']; ?>" />
                       <label class="form-label" for="form3Example4">Nama Dosen</label>
                     </div>
+
+                    <?php
+                    // var_dump($result['login_id_login']);
+                    ?>
 
                     <!-- Submit button -->
                     <button type="submit" class="btn bgcoler btn-block mb-4" name="Ubah">
@@ -148,7 +178,8 @@ if (isset($old_nip)) {
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>

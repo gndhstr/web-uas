@@ -7,14 +7,40 @@ if ($_SESSION['jabatan'] != "admin") {
   header("Location: ../index.php");
 }
 
-$kode = $_GET['kode'];
+$kode_lama = $_GET['kode'];
 
-if (isset($kode)) {
-  $data = get("SELECT * FROM matkul WHERE kode_matkul='$kode'");
+if (isset($kode_lama)) {
+  $result = get("SELECT * FROM matkul WHERE kode_matkul='$kode_lama'");
   $nama_dosen = $data['dosen_nama_dosen'];
   $data_dosen = get_all("SELECT * FROM dosen WHERE NOT nama_dosen='$nama_dosen'");
 } else {
   header("Location: ../index.php");
+}
+
+if (isset($_POST['Ubah'])) {
+
+  $kode = $_POST['kode'];
+  $nama_dosen = $_POST['dosen'];
+  $nama_matkul = $_POST['matkul'];
+  $jadwal = $_POST['jadwal'];
+  $id = $result['login_id_login'];
+
+
+  $query = "UPDATE matkul SET
+
+  kode_matkul = '$kode',
+  nama_matkul = '$nama_matkul',
+  jadwal_matkul = '$jadwal',
+  dosen_nama_dosen = '$nama_dosen',
+  login_id_login = $id
+
+  WHERE kode_matkul = '$kode_lama'";
+  // var_dump($query);
+  $result = mysqli_query($koneksi, $query);
+
+  if ($result) {
+    header("Location: ../index.php");
+  }
 }
 
 ?>
@@ -102,33 +128,33 @@ if (isset($kode)) {
             <div class="col-lg-6 mb-5 mb-lg-0">
               <div class="card">
                 <div class="card-body py-5 px-md-5">
-                  <form action="ubahmatkul.php?kode=<?= $kode; ?>" method="post">
+                  <form action="ubahmatkul.php?kode=<?= $kode_lama; ?>" method="post">
 
                     <h3>Ubah Data</h3>
                     <br>
                     <!-- Email input -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example3" class="form-control" name="kode" value="<?= $data['kode_matkul']; ?>" />
+                      <input type="text" id="form3Example3" class="form-control" name="kode" value="<?= $result['kode_matkul']; ?>" />
                       <label class="form-label" for="form3Example3">Kode Matkul</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example4" class="form-control" name="matkul" value="<?= $data['nama_matkul']; ?>" />
+                      <input type="text" id="form3Example4" class="form-control" name="matkul" value="<?= $result['nama_matkul']; ?>" />
                       <label class="form-label" for="form3Example4">Mata Kuliah</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                      <input type="date" id="form3Example4" class="form-control" name="jadwal" value="<?= $data['jadwal_matkul']; ?>" />
+                      <input type="date" id="form3Example4" class="form-control" name="jadwal" value="<?= $result['jadwal_matkul']; ?>" />
                       <label class="form-label" for="form3Example4">Jadwal</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                      <select class="form-select" aria-label="Default select example">
+                      <select class="form-select" aria-label="Default select example" name="dosen">
                         <option>Pilih Dosen Pengampu</option>
-                        <option selected><?= $data['dosen_nama_dosen'] ?></option>
+                        <option selected><?= $result['dosen_nama_dosen'] ?></option>
                         <?php foreach ($data_dosen as $dosen) :  ?>
                           <option value="<?= $dosen[1] ?>"><?= $dosen[1]; ?></option>
                         <?php endforeach; ?>
