@@ -120,7 +120,7 @@ if (isset($_POST['login'])) {
                     <!-- Password input -->
                     <div class="form-outline mb-4">
                       <div class="input-group">
-                        <input type="password" id="password" class="form-control" name="password" />
+                        <input type="password" id="password" class="form-control mr-1 rounded" name="password" />
                         <div class="input-group-append">
                           <button type="button" id="eye" class="input-group-text"><i class="bi bi-eye-slash"
                               id="eye-icon" aria-hidden="true"></i></button>
@@ -183,6 +183,23 @@ if (isset($_POST['login'])) {
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    const eye = document.getElementById("eye");
+    const eye_icon = document.getElementById("eye-icon");
+    const password = document.getElementById("password");
+
+    eye.addEventListener('click', () => {
+      const check_type = password.getAttribute("type");
+      if (check_type == "password") {
+        password.setAttribute("type", "text");
+        eye_icon.className = "bi bi-eye";
+      } else {
+        password.setAttribute("type", "password");
+        eye_icon.className = "bi bi-eye-slash";
+      }
+    });
+  </script>
 
 </body>
 
