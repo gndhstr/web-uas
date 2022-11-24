@@ -122,19 +122,19 @@ if (isset($_POST['tambah'])) {
                                         <br>
                                         <!-- Email input -->
                                         <div class="form-outline mb-4">
-                                            <input type="text" id="form3Example3" class="form-control" name="kode" />
+                                            <input type="text" id="form3Example3" class="form-control" name="kode required" />
                                             <label class="form-label" for="form3Example3">Kode Matkul</label>
                                         </div>
 
                                         <!-- Password input -->
                                         <div class="form-outline mb-4">
-                                            <input type="text" id="form3Example4" class="form-control" name="matkul" />
+                                            <input type="text" id="form3Example4" class="form-control" name="matkul required" />
                                             <label class="form-label" for="form3Example4">Mata Kuliah</label>
                                         </div>
 
                                         <!-- Password input -->
                                         <div class="form-outline mb-4">
-                                            <input type="date" id="form3Example4" class="form-control" name="jadwal" />
+                                            <input type="date" id="form3Example4" class="form-control" name="jadwal required" />
                                             <label class="form-label" for="form3Example4">Jadwal</label>
                                         </div>
 
