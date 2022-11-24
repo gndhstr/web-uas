@@ -5,3 +5,5 @@
 - Gandhi Satria Mukti (5302421071)
 - Bimo Alam Syah (5302421076)
 - Yusril Arzaqi
+
+Database import needed!
