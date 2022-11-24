@@ -19,6 +19,10 @@ if (isset($kode_lama)) {
 
 if (isset($_POST['Ubah'])) {
 
+  if ($_POST['namadosen'] == "Pilih Dosen Pengampu") {
+    $error = "Silahkan pilih data dosen pengampu yang benar!";
+  }
+
   $kode = $_POST['kode'];
   $nama_dosen = $_POST['dosen'];
   $nama_matkul = $_POST['matkul'];
@@ -136,19 +140,19 @@ if (isset($_POST['Ubah'])) {
                     <br>
                     <!-- Email input -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example3" class="form-control" name="kode" value="<?= $result['kode_matkul']; ?>" />
+                      <input type="text" id="form3Example3" class="form-control" name="kode" value="<?= $result['kode_matkul']; ?>" required/>
                       <label class="form-label" for="form3Example3">Kode Matkul</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example4" class="form-control" name="matkul" value="<?= $result['nama_matkul']; ?>" />
+                      <input type="text" id="form3Example4" class="form-control" name="matkul" value="<?= $result['nama_matkul']; ?>" required/>
                       <label class="form-label" for="form3Example4">Mata Kuliah</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                      <input type="date" id="form3Example4" class="form-control" name="jadwal" value="<?= $result['jadwal_matkul']; ?>" />
+                      <input type="date" id="form3Example4" class="form-control" name="jadwal" value="<?= $result['jadwal_matkul']; ?>" required/>
                       <label class="form-label" for="form3Example4">Jadwal</label>
                     </div>
 
@@ -162,6 +166,12 @@ if (isset($_POST['Ubah'])) {
                         <?php endforeach; ?>
                       </select>
                       <label class="form-label" for="form3Example4">Dosen Pengampu</label>
+                      <?php
+                      if (isset($error)): ?>
+                      <div class="alert alert-danger mt-3" role="alert">
+                          <?= $error ?>
+                      </div>
+                      <?php endif ?>
                     </div>
 
                     <!-- Submit button -->

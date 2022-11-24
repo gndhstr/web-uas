@@ -114,13 +114,13 @@ if (isset($_POST['tambah'])) {
                     <br>
                     <!-- Email input -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example3" class="form-control" name="nip" />
+                      <input type="text" id="form3Example3" class="form-control" name="nip" required/>
                       <label class="form-label" for="form3Example3">NIP Dosen</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example4" class="form-control" name="dosen" />
+                      <input type="text" id="form3Example4" class="form-control" name="dosen" required/>
                       <label class="form-label" for="form3Example4">Nama Dosen</label>
                     </div>
 

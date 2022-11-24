@@ -114,19 +114,19 @@ if (isset($_POST['tambah'])) {
                     <br>
                     <!-- Input nama -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example3" class="form-control" name="nama" />
+                      <input type="text" id="form3Example3" class="form-control" name="nama" required/>
                       <label class="form-label" for="form3Example3">Nama</label>
                     </div>
 
                     <!-- input username -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example4" class="form-control" name="username" />
+                      <input type="text" id="form3Example4" class="form-control" name="username" required/>
                       <label class="form-label" for="form3Example4">Username</label>
                     </div>
 
                     <!-- password username -->
                     <div class="form-outline mb-4 input-group">
-                      <input type="password" id="password" class="form-control mr-1 rounded" name="password" placeholder="Password" />
+                      <input type="password" id="password" class="form-control mr-1 rounded" name="password" placeholder="Password" required/>
                       <div class="input-group-append">
                         <button type="button" id="eye" class="input-group-text"><i class="bi bi-eye-slash" id="eye-icon" aria-hidden="true"></i></button>
                       </div>

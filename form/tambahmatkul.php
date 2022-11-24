@@ -120,25 +120,25 @@ if (isset($_POST['tambah'])) {
 
                                         <h3>Tambah Data</h3>
                                         <br>
-                                        <!-- Email input -->
+                                        <!-- Kode input -->
                                         <div class="form-outline mb-4">
-                                            <input type="text" id="form3Example3" class="form-control" name="kode required" />
+                                            <input type="text" id="form3Example3" class="form-control" name="kode" required/>
                                             <label class="form-label" for="form3Example3">Kode Matkul</label>
                                         </div>
 
-                                        <!-- Password input -->
+                                        <!-- Matkul input -->
                                         <div class="form-outline mb-4">
-                                            <input type="text" id="form3Example4" class="form-control" name="matkul required" />
+                                            <input type="text" id="form3Example4" class="form-control" name="matkul" required/>
                                             <label class="form-label" for="form3Example4">Mata Kuliah</label>
                                         </div>
 
-                                        <!-- Password input -->
+                                        <!-- Jadwal input -->
                                         <div class="form-outline mb-4">
-                                            <input type="date" id="form3Example4" class="form-control" name="jadwal required" />
+                                            <input type="date" id="form3Example4" class="form-control" name="jadwal" required/>
                                             <label class="form-label" for="form3Example4">Jadwal</label>
                                         </div>
 
-                                        <!-- Password input -->
+                                        <!-- Dosen input -->
                                         <div class="form-outline mb-4">
                                             <select class="form-select" name="namadosen"
                                                 aria-label="Default select example">

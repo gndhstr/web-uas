@@ -132,14 +132,14 @@ if (isset($_POST['Ubah'])) {
                     <br>
                     <!-- Email input -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example3" class="form-control" name="nip" value="<?= $old_nip; ?>" />
+                      <input type="text" id="form3Example3" class="form-control" name="nip" value="<?= $old_nip; ?>" required/>
                       <label class="form-label" for="form3Example3">NIP Dosen</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4">
                       <input type="text" id="form3Example4" class="form-control" name="dosen"
-                        value="<?= $result['nama_dosen']; ?>" />
+                        value="<?= $result['nama_dosen']; ?>" required/>
                       <label class="form-label" for="form3Example4">Nama Dosen</label>
                     </div>
 
