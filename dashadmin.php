@@ -54,7 +54,7 @@ if (isset($_GET['cari_akun'])) {
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search" name="cari_mk" />
                 <button type="submit" class="btn btn-outline-primary mr-1 ">search</button>
-                <input type="submit" class="btn btn-primary rounded" value="Tampilkan hari ini" name="hari_ini" />
+                <input type="submit" class="btn btn-primary rounded" value="Jadwal Hari Ini" name="hari_ini" />
               </div>
             </form>
           </div>
@@ -216,7 +216,7 @@ if (isset($_GET['cari_akun'])) {
           <!--Table body-->
         </table>
         <!--Table-->
-        <a href="form/tambahakun.php" class="btn btn-success m-3">Tambah Akun Tenaga Kependidikan</a>
+        <a href="form/tambahakun.php" class="btn btn-success m-3">Tambah Akun</a>
       </div>
     </div>
   </div>

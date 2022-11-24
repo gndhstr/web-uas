@@ -97,10 +97,12 @@ if (isset($_POST['Ubah'])) {
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li>
-            <?= $_SESSION['nama']; ?>
-          </li>
           <li><a class="nav-link scrollto" href="../index.php">Kembali</a></li>
+          <li>
+          <a class="nav-link" href="">
+            <?= $_SESSION['nama']; ?> <i class="bi bi-person-fill text-danger mx-2"></i>
+          </a>
+          </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -159,6 +161,7 @@ if (isset($_POST['Ubah'])) {
                           <option value="<?= $dosen[1] ?>"><?= $dosen[1]; ?></option>
                         <?php endforeach; ?>
                       </select>
+                      <label class="form-label" for="form3Example4">Dosen Pengampu</label>
                     </div>
 
                     <!-- Submit button -->

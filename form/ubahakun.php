@@ -90,10 +90,12 @@ if (isset($_POST['Ubah'])) {
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li>
-            <?= $_SESSION['nama']; ?>
-          </li>
           <li><a class="nav-link scrollto" href="../index.php">Kembali</a></li>
+          <li>
+          <a class="nav-link" href="">
+            <?= $_SESSION['nama']; ?> <i class="bi bi-person-fill text-danger mx-2"></i>
+          </a>
+          </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -110,7 +112,7 @@ if (isset($_POST['Ubah'])) {
           <div class="row gx-lg-5 align-items-center">
             <div class="col-lg-6 mb-5 mb-lg-0">
               <h1 class="my-5 display-3 fw-bold ls-tight">
-                Tambah Akun<br />
+                Ubah Akun<br />
                 <span class="coler">Tenaga Kependidikan</span>
               </h1>
               <p style="color: hsl(217, 10%, 50.8%)">
