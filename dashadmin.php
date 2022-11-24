@@ -25,7 +25,8 @@ if (isset($_GET['cari_ds'])) {
 
 if (isset($_GET['hari_ini'])) {
   $waktu =  date("Y-m-d");
-  $result_matkul = mysqli_query($koneksi, "SELECT * FROM matkul WHERE jadwal_matkul='$waktu' ORDER BY jadwal_matkul");
+  $result_matkul = get_all("SELECT * FROM matkul WHERE jadwal_matkul='$waktu' ORDER BY jadwal_matkul");
+  // echo($result_matkul);
 }
 
 if (isset($_GET['cari_akun'])) {

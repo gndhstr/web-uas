@@ -24,7 +24,9 @@ if (!isset($_SESSION['jabatan'])) {
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -57,22 +59,25 @@ if (!isset($_SESSION['jabatan'])) {
       <div class="logo">
         <h1><a href="#">ABC <span>UNIVERSITY</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li>
-            <?php if ($_SESSION['jabatan'] == "admin") : ?>
-              <i class="bi bi-person-fill text-danger"></i> <?= $_SESSION['nama']; ?>
-            <?php else : ?>
-              <i class="bi bi-person-fill text-success"></i> <?= $_SESSION['nama']; ?>
-            <?php endif; ?>
-          </li>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">Dashboard</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="session/logout.php">Logout</a></li>
+          <li></li>
+          <li>
+            <a class="nav-link" href="">
+              <?php if ($_SESSION['jabatan'] == "admin"): ?>
+                <?= $_SESSION['nama']; ?> <i class="bi bi-person-fill text-danger mx-2"></i>
+                <?php else: ?>
+                <?= $_SESSION['nama']; ?> <i class="bi bi-person-fill text-success mx-2"></i>
+                  <?php endif; ?>
+            </a>
+          </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -118,7 +123,8 @@ if (!isset($_SESSION['jabatan'])) {
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown">MySQL</h2>
-                <p class="animate__animated animate__fadeInUp">MySQL adalah sebuah perangkat lunak sistem manajemen basis
+                <p class="animate__animated animate__fadeInUp">MySQL adalah sebuah perangkat lunak sistem manajemen
+                  basis
                   data SQL atau DBMS yang multialur, multipengguna, dengan sekitar 6 juta instalasi di seluruh dunia.
                 </p>
               </div>
@@ -166,7 +172,9 @@ if (!isset($_SESSION['jabatan'])) {
 
           <div class="col-lg-6">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="https://media.discordapp.net/attachments/968176593547702322/1026405915534037043/IMG-20210606-WA0000.jpg?width=460&height=460" class="img-fluid" alt=""></div>
+              <div class="pic"><img
+                  src="https://media.discordapp.net/attachments/968176593547702322/1026405915534037043/IMG-20210606-WA0000.jpg?width=460&height=460"
+                  class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Bimo Alam Syah</h4>
                 <span>Mahasiswa</span>
@@ -183,7 +191,9 @@ if (!isset($_SESSION['jabatan'])) {
 
           <div class="col-lg-6 mt-4 mt-lg-0">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="https://cdn.discordapp.com/attachments/875383813411311627/1043561796524593243/xubw7q.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img
+                  src="https://cdn.discordapp.com/attachments/875383813411311627/1043561796524593243/xubw7q.jpg"
+                  class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Gandhi Satria Mukti</h4>
                 <span>Mahasiswa</span>
@@ -245,7 +255,8 @@ if (!isset($_SESSION['jabatan'])) {
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="https://cdn.discordapp.com/attachments/875383813411311627/1042824944549122069/PakRiska_1.jpeg" class="testimonial-img" alt="">
+                <img src="https://cdn.discordapp.com/attachments/875383813411311627/1042824944549122069/PakRiska_1.jpeg"
+                  class="testimonial-img" alt="">
                 <h3>Riska Dami Ristanto, S.Pd., M.Pd.</h3>
                 <h4>Dosen Pengampu</h4>
                 <p>
@@ -256,7 +267,9 @@ if (!isset($_SESSION['jabatan'])) {
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="https://cdn.discordapp.com/attachments/875383813411311627/1042824944343580803/Pak_Febry_1.jpeg" class="testimonial-img" alt="">
+                <img
+                  src="https://cdn.discordapp.com/attachments/875383813411311627/1042824944343580803/Pak_Febry_1.jpeg"
+                  class="testimonial-img" alt="">
                 <h3>Febry Putra Rochim, S.T., M.Eng.</h3>
                 <h4>Dosen Pengampu</h4>
                 <p>
@@ -291,7 +304,8 @@ if (!isset($_SESSION['jabatan'])) {
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>

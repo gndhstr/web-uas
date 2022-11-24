@@ -1,5 +1,4 @@
 <?php
-
 // ngingklud fungsi
 include "../lib/function.php";
 // ngecek nak kw looing ngowo akun admin
@@ -11,7 +10,29 @@ if ($_SESSION['jabatan'] != "admin") {
 $old_id = $_GET['id'];
 
 if (isset($old_id)) {
-  $data = get("SELECT * FROM login WHERE id='$old_id'");
+  $result= get("SELECT * FROM login WHERE id_login='$old_id'");
+}
+
+if (isset($_POST['Ubah'])) {
+
+  $nama = $_POST['nama'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  $query = "UPDATE login SET
+
+  id_login = $old_id,
+  nama = '$nama',
+  username = '$username',
+  password = MD5('$password')
+
+  WHERE id_login = $old_id";
+  // var_dump($query);
+  $result = mysqli_query($koneksi, $query);
+
+  if ($result) {
+    header("Location: ../index.php");
+  }
 }
 
 ?>
@@ -101,19 +122,19 @@ if (isset($old_id)) {
               <div class="card">
                 <div class="card-body py-5 px-md-5">
 
-                  <form action="ubahakun.php" method="post">
+                  <form action="ubahakun.php?id=<?= $old_id; ?>" method="post">
 
                     <h3>Ubah Akun</h3>
                     <br>
                     <!-- Input nama -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example3" class="form-control" name="nama" />
+                      <input type="text" id="form3Example3" class="form-control" name="nama" value="<?= $result['nama']; ?>" />
                       <label class="form-label" for="form3Example3">Nama</label>
                     </div>
 
                     <!-- input username -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example4" class="form-control" name="username" />
+                      <input type="text" id="form3Example4" class="form-control" name="username" value="<?= $result['username']; ?>"  />
                       <label class="form-label" for="form3Example4">Username</label>
                     </div>
 
@@ -126,7 +147,7 @@ if (isset($old_id)) {
                     </div>
 
                     <!-- Submit button -->
-                    <button type="submit" class="btn bgcoler btn-block mb-4" name="tambah">
+                    <button type="submit" class="btn bgcoler btn-block mb-4" name="Ubah">
                       Ubah Akun
                     </button>
 
