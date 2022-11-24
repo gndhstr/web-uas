@@ -8,7 +8,7 @@ if ($_SESSION['jabatan'] != 'tendik') {
 
 include "../koneksi.php";
 if (isset($_POST['tambah'])) {
-  $dosen = $_POST['dosen'];
+  $dosen = htmlspecialchars($_POST['dosen']);
   $nip = $_POST['nip'];
   $id = $_SESSION['id'];
 

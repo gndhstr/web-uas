@@ -1007,8 +1007,10 @@ section {
   transition: ease-in-out 0.3s;
 }
 
+
 .team .member:hover img {
   transform: scale(1.1);
+  
 }
 
 .team .member .member-info {
