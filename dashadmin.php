@@ -23,9 +23,19 @@ if (isset($_GET['cari_ds'])) {
   OR nama_dosen LIKE '%$cari_ds%'");
 }
 
-if (isset($_GET['hari_ini'])) {
+if (isset($_GET['tampilan']) && $_GET['tampilan'] == "hari_ini") {
   $waktu =  date("Y-m-d");
   $result_matkul = get_all("SELECT * FROM matkul WHERE jadwal_matkul='$waktu' ORDER BY jadwal_matkul");
+  // echo($result_matkul);
+}
+if (isset($_GET['tampilan']) && $_GET['tampilan'] == "bulan_ini") {
+  $waktu =  date("Y-m");
+  $result_matkul = get_all("SELECT * FROM matkul WHERE jadwal_matkul LIKE '%$waktu%' ORDER BY jadwal_matkul");
+  // echo($result_matkul);
+}
+if (isset($_GET['tampilan']) && $_GET['tampilan'] == "tahun_ini") {
+  $waktu =  date("Y");
+  $result_matkul = get_all("SELECT * FROM matkul WHERE jadwal_matkul LIKE '%$waktu%' ORDER BY jadwal_matkul");
   // echo($result_matkul);
 }
 
@@ -54,7 +64,34 @@ if (isset($_GET['cari_akun'])) {
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search" name="cari_mk" />
                 <button type="submit" class="btn btn-outline-primary mr-1 ">search</button>
-                <input type="submit" class="btn btn-primary rounded" value="Jadwal Hari Ini" name="hari_ini" />
+                <!-- <input type="submit" class="btn btn-primary rounded" value="Jadwal Hari Ini" name="hari_ini" /> -->
+                <!-- <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Tampilkan Matkul
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" name="hari_ini">Hari ini</a>
+                  <a class="dropdown-item" name="bulan_ini">Bulan ini</a>
+                  <a class="dropdown-item" name="tahun_ini">Tahun ini</a>
+                </div> -->
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary"><?php if (isset($_GET['tampilan']) && $_GET['tampilan'] != '') {
+                    echo ($_GET['tampilan']);
+                  }
+                  else {
+                    echo ("Tampilkan Berdasarkan");
+                  } ?>
+                  </button>
+                  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="./index.php?tampilan=hari_ini">Hari ini</a>
+                    <a class="dropdown-item" href="./index.php?tampilan=bulan_ini">Bulan ini</a>
+                    <a class="dropdown-item" href="./index.php?tampilan=tahun_ini">Tahun ini</a>
+                  </div>
+                </div>
+              </div>
               </div>
             </form>
           </div>

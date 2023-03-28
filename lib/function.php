@@ -1,6 +1,12 @@
 <?php
 
-include "../koneksi.php";
+$koneksi = mysqli_connect ("localhost","root","","uas");
+
+// check koneksi
+
+if (mysqli_connect_errno()){
+	echo "Koneksi database gagal : ".mysqli_connect_errno();
+}
 
 function query($query) {
   global $koneksi;

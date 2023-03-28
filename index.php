@@ -173,8 +173,8 @@ if (!isset($_SESSION['jabatan'])) {
           <div class="col-lg-6">
             <div class="member d-flex align-items-start">
               <div class="pic"><img
-                  src="https://media.discordapp.net/attachments/968176593547702322/1026405915534037043/IMG-20210606-WA0000.jpg?width=460&height=460"
-                  class="img-fluid" alt=""></div>
+                  src="https://cdn.discordapp.com/attachments/968176593547702322/1046089268742864996/312281267_843821256659800_4011442230263236088_n.jpg"
+                  class="img-fluid bimo" alt=""></div>
               <div class="member-info">
                 <h4>Bimo Alam Syah</h4>
                 <span>Mahasiswa</span>
@@ -192,7 +192,7 @@ if (!isset($_SESSION['jabatan'])) {
           <div class="col-lg-6 mt-4 mt-lg-0">
             <div class="member d-flex align-items-start">
               <div class="pic"><img
-                  src="https://cdn.discordapp.com/attachments/875383813411311627/1043561796524593243/xubw7q.jpg"
+                  src="assets/img/pp.jpg"
                   class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Gandhi Satria Mukti</h4>
@@ -209,7 +209,7 @@ if (!isset($_SESSION['jabatan'])) {
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/pp.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Azzahra Fadhila Fakhrunnisa</h4>
                 <span>Mahasiswa</span>
@@ -226,7 +226,7 @@ if (!isset($_SESSION['jabatan'])) {
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/pp.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Lazzuardi Anwar Zidni</h4>
                 <span>Mahasiswa</span>
@@ -314,6 +314,9 @@ if (!isset($_SESSION['jabatan'])) {
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

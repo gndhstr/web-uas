@@ -13,7 +13,8 @@ if (isset($_POST['login'])) {
   $cek = mysqli_num_rows($query);
   $data = mysqli_fetch_array($query);
 
-
+  var_dump($data);
+  var_dump($cek);
   if ($cek) {
     $_SESSION['id'] = $data['id_login'];
     $_SESSION['nama'] = $data['nama'];

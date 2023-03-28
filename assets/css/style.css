@@ -5,6 +5,22 @@
 * License: https://bootstrapmade.com/license/
 */
 
+.team .member:hover .bimo{
+  animation-name: spin;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+
+@keyframes spin {
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
+}
+
 .mr-1 {
   margin-right: 10px;
 }
@@ -1007,10 +1023,8 @@ section {
   transition: ease-in-out 0.3s;
 }
 
-
 .team .member:hover img {
   transform: scale(1.1);
-  
 }
 
 .team .member .member-info {

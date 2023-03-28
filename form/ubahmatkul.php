@@ -11,17 +11,16 @@ $kode_lama = $_GET['kode'];
 
 if (isset($kode_lama)) {
   $result = get("SELECT * FROM matkul WHERE kode_matkul='$kode_lama'");
-  $nama_dosen = $data['dosen_nama_dosen'];
+  $nama_dosen = $result['dosen_nama_dosen'];
+  // var_dump($nama_dosen);
+  // var_dump($result);
+  // die;
   $data_dosen = get_all("SELECT * FROM dosen WHERE NOT nama_dosen='$nama_dosen'");
 } else {
   header("Location: ../index.php");
 }
 
 if (isset($_POST['Ubah'])) {
-
-  if ($_POST['namadosen'] == "Pilih Dosen Pengampu") {
-    $error = "Silahkan pilih data dosen pengampu yang benar!";
-  }
 
   $kode = $_POST['kode'];
   $nama_dosen = $_POST['dosen'];
@@ -166,12 +165,6 @@ if (isset($_POST['Ubah'])) {
                         <?php endforeach; ?>
                       </select>
                       <label class="form-label" for="form3Example4">Dosen Pengampu</label>
-                      <?php
-                      if (isset($error)): ?>
-                      <div class="alert alert-danger mt-3" role="alert">
-                          <?= $error ?>
-                      </div>
-                      <?php endif ?>
                     </div>
 
                     <!-- Submit button -->

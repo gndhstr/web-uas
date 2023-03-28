@@ -1,14 +1,10 @@
 <?php
 
 session_start();
-// checking if user jabatan not tendik
-if ($_SESSION['jabatan'] != 'tendik') {
-  header("Location: ../index.php");
-}
 
 include "../koneksi.php";
 if (isset($_POST['tambah'])) {
-  $dosen = htmlspecialchars($_POST['dosen']);
+  $dosen = $_POST['dosen'];
   $nip = $_POST['nip'];
   $id = $_SESSION['id'];
 
