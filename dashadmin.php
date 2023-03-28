@@ -1,16 +1,15 @@
 <?php
 include "koneksi.php";
-include "lib/function.php";
 
-$result_dosen = get_all("SELECT * FROM dosen");
+$result_dosen = mysqli_query($koneksi, "SELECT * FROM dosen");
 
-$result_matkul = get_all("SELECT * FROM matkul ORDER BY jadwal_matkul");
+$result_matkul = mysqli_query($koneksi, "SELECT * FROM matkul ORDER BY jadwal_matkul");
 
-$data_akun = get_all("SELECT * FROM login WHERE NOT jabatan='admin'");
+$data_akun = mysqli_query ($koneksi, "SELECT * FROM login WHERE NOT jabatan='admin'");
 
 if (isset($_GET['cari_mk'])) {
   $cari_mk = $_GET['cari_mk'];
-  $result_matkul = get_all("SELECT * FROM matkul 
+  $result_matkul = mysqli_query ($koneksi,"SELECT * FROM matkul 
   WHERE nama_matkul LIKE '%$cari_mk%'
   OR kode_matkul LIKE '%$cari_mk%'
   OR dosen_nama_dosen LIKE '%$cari_mk%'");
@@ -18,30 +17,30 @@ if (isset($_GET['cari_mk'])) {
 
 if (isset($_GET['cari_ds'])) {
   $cari_ds = $_GET['cari_ds'];
-  $result_dosen = get_all("SELECT * FROM dosen 
+  $result_dosen = mysqli_query ($koneksi,"SELECT * FROM dosen 
   WHERE nip LIKE '%$cari_ds%'
   OR nama_dosen LIKE '%$cari_ds%'");
 }
 
 if (isset($_GET['tampilan']) && $_GET['tampilan'] == "hari_ini") {
   $waktu =  date("Y-m-d");
-  $result_matkul = get_all("SELECT * FROM matkul WHERE jadwal_matkul='$waktu' ORDER BY jadwal_matkul");
+  $result_matkul = mysqli_query ($koneksi,"SELECT * FROM matkul WHERE jadwal_matkul='$waktu' ORDER BY jadwal_matkul");
   // echo($result_matkul);
 }
 if (isset($_GET['tampilan']) && $_GET['tampilan'] == "bulan_ini") {
   $waktu =  date("Y-m");
-  $result_matkul = get_all("SELECT * FROM matkul WHERE jadwal_matkul LIKE '%$waktu%' ORDER BY jadwal_matkul");
+  $result_matkul = mysqli_query ($koneksi,"SELECT * FROM matkul WHERE jadwal_matkul LIKE '%$waktu%' ORDER BY jadwal_matkul");
   // echo($result_matkul);
 }
 if (isset($_GET['tampilan']) && $_GET['tampilan'] == "tahun_ini") {
   $waktu =  date("Y");
-  $result_matkul = get_all("SELECT * FROM matkul WHERE jadwal_matkul LIKE '%$waktu%' ORDER BY jadwal_matkul");
+  $result_matkul = mysqli_query ($koneksi,"SELECT * FROM matkul WHERE jadwal_matkul LIKE '%$waktu%' ORDER BY jadwal_matkul");
   // echo($result_matkul);
 }
 
 if (isset($_GET['cari_akun'])) {
   $cari_akun = $_GET['cari_akun'];
-  $data_akun = get_all("SELECT * FROM login
+  $data_akun = mysqli_query ($koneksi,"SELECT * FROM login
     WHERE NOT jabatan='admin'
     AND nama LIKE '%$cari_akun%'
     AND username LIKE '%$cari_akun%'
@@ -114,7 +113,7 @@ if (isset($_GET['cari_akun'])) {
           <!--Table head-->
           <!--Table body-->
           <tbody>
-            <?php foreach ($result_matkul as $index => $data_matkul) : ?>
+            <?php foreach (mysqli_fetch_all($result_matkul) as $index => $data_matkul) : ?>
               <tr>
                 <th scope="row">
                   <?= $index + 1 ?>
@@ -176,7 +175,7 @@ if (isset($_GET['cari_akun'])) {
           <!--Table head-->
           <!--Table body-->
           <tbody>
-            <?php foreach ($result_dosen as $index => $data_dosen) : ?>
+            <?php foreach (mysqli_fetch_all($result_dosen) as $index => $data_dosen) : ?>
               <tr>
                 <th scope="row">
                   <?= $index + 1 ?>
@@ -232,7 +231,7 @@ if (isset($_GET['cari_akun'])) {
           <!--Table head-->
           <!--Table body-->
           <tbody>
-            <?php foreach ($data_akun as $index => $akun) : ?>
+            <?php foreach (mysqli_fetch_all($data_akun) as $index => $akun) : ?>
               <tr>
                 <th scope="row">
                   <?= $akun[0]; ?>
