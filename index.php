@@ -154,7 +154,8 @@ if (!isset($_SESSION['jabatan'])) {
     <?php
     if ($_SESSION['jabatan'] == "admin") {
       include "dashadmin.php";
-    } else {
+    } 
+    if ($_SESSION['jabatan'] == "tendik") {
       include "dashtendik.php";
     }
     ?>
