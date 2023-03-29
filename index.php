@@ -36,6 +36,7 @@ if (!isset($_SESSION['jabatan'])) {
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 
   <!-- Template Main CSS File -->
   <style>
@@ -85,38 +86,6 @@ if (!isset($_SESSION['jabatan'])) {
     </div>
   </header><!-- End Header -->
 
-  <section id="home" class="hero">
-
-    <div class="info d-flex align-items-center">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-6 text-center">
-            <h2 data-aos="fade-down">Hello, World! <br> <span>I'm Gandhi Satria</span></h2>
-            <a data-aos="fade-up" data-aos-delay="200" href="#about" class="btn-get-started">Know More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-
-      <div class="carousel-item active" style="background-image: url(https://cdn.discordapp.com/attachments/875383813411311627/998198053938921502/Makima.Chainsaw.Man.full.3365772.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(https://cdn.discordapp.com/attachments/875383813411311627/1043564512642613409/sarah-lee-QURU8IY-RaI-unsplash-picsayc.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(https://cdn.discordapp.com/attachments/875383813411311627/1043204616285864036/image.png)"></div>
-      <div class="carousel-item" style="background-image: url(https://cdn.discordapp.com/attachments/875383813411311627/1034763380621324308/unknown.png)"></div>
-      <div class="carousel-item" style="background-image: url(https://cdn.discordapp.com/attachments/875383813411311627/1038010648669470820/c72895d0671d049724ccefc81ec5f0c7.jpg)"></div>
-
-      <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-      </a>
-
-      <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-      </a>
-
-    </div>
-
-  </section>
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
@@ -346,6 +315,7 @@ if (!isset($_SESSION['jabatan'])) {
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
