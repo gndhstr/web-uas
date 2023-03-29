@@ -270,7 +270,7 @@ if (!isset($_SESSION['jabatan'])) {
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img
-                  src="https://cdn.discordapp.com/attachments/875383813411311627/1090606272405057627/image.png"
+                  src="https://cdn.discordapp.com/attachments/875383813411311627/1042824944343580803/Pak_Febry_1.jpeg"
                   class="testimonial-img" alt="">
                 <h3>Febry Putra Rochim, S.T., M.Eng.</h3>
                 <h4>Dosen Pengampu</h4>
@@ -283,9 +283,22 @@ if (!isset($_SESSION['jabatan'])) {
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img
-                  src="https://cdn.discordapp.com/attachments/875383813411311627/1090606381289189458/image.png"
+                  src="https://cdn.discordapp.com/attachments/875383813411311627/1090606272405057627/image.png"
                   class="testimonial-img" alt="">
                 <h3>Nur Iksan, S.T., M.Kom.</h3>
+                <h4>Dosen Pengampu</h4>
+                <p>
+                  Manajemen Jaringan Komputer
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img
+                  src="https://cdn.discordapp.com/attachments/875383813411311627/1090606381289189458/image.png"
+                  class="testimonial-img" alt="">
+                <h3>Putri Khoirin Nashiroh, S.Pd., M.Pd.</h3>
                 <h4>Dosen Pengampu</h4>
                 <p>
                   Manajemen Jaringan Komputer
