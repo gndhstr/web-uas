@@ -1,5 +1,5 @@
 <?php
-include "../lib/function.php";
+include "../koneksi.php";
 
 session_start();
 // checking if user jabatan not admin
@@ -12,7 +12,7 @@ if (isset($_POST['tambah'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
   
-  $result = query("INSERT INTO login VALUES (NULL, '$nama', '$username', MD5('$password'), 'tendik')");
+  $result = mysqli_query($koneksi, "INSERT INTO login VALUES (NULL, '$nama', '$username', MD5('$password'), 'tendik')");
 
   if ($result) {
     header("Location: ../index.php");

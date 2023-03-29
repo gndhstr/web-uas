@@ -1,7 +1,6 @@
 <?php
-// ngingklud fungsi
-include "../lib/function.php";
-// ngecek nak kw looing ngowo akun admin
+include "../koneksi.php";
+
 session_start();
 if ($_SESSION['jabatan'] != "admin") {
   header("Location: ../index.php");
@@ -10,7 +9,8 @@ if ($_SESSION['jabatan'] != "admin") {
 $old_id = $_GET['id'];
 
 if (isset($old_id)) {
-  $result= get("SELECT * FROM login WHERE id_login='$old_id'");
+  $result = mysqli_query($koneksi, "SELECT * FROM login WHERE id_login='$old_id'");
+  $result = $result -> fetch_assoc();
 }
 
 if (isset($_POST['Ubah'])) {

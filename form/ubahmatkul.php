@@ -1,7 +1,6 @@
 <?php
 session_start();
-
-include "../lib/function.php";
+include "../koneksi.php";
 
 if ($_SESSION['jabatan'] != "admin") {
   header("Location: ../index.php");
@@ -10,12 +9,14 @@ if ($_SESSION['jabatan'] != "admin") {
 $kode_lama = $_GET['kode'];
 
 if (isset($kode_lama)) {
-  $result = get("SELECT * FROM matkul WHERE kode_matkul='$kode_lama'");
+  $result = mysqli_query($koneksi,"SELECT * FROM matkul WHERE kode_matkul='$kode_lama'");
+  $result = $result -> fetch_assoc();
   $nama_dosen = $result['dosen_nama_dosen'];
   // var_dump($nama_dosen);
   // var_dump($result);
   // die;
-  $data_dosen = get_all("SELECT * FROM dosen WHERE NOT nama_dosen='$nama_dosen'");
+  $data_dosen = mysqli_query($koneksi,"SELECT * FROM dosen WHERE NOT nama_dosen='$nama_dosen'");
+  $data_dosen = $data_dosen -> fetch_all();
 } else {
   header("Location: ../index.php");
 }

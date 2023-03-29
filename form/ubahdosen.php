@@ -1,7 +1,6 @@
 <?php
-// ngingklud fungsi
-include "../lib/function.php";
-// ngecek nak kw looing ngowo akun admin
+include "../koneksi.php";
+
 session_start();
 if ($_SESSION['jabatan'] != "admin") {
   header("Location: ../index.php");
@@ -10,15 +9,15 @@ if ($_SESSION['jabatan'] != "admin") {
 $old_nip = $_GET['nip'];
 
 if (isset($old_nip)) {
-  $result = get("SELECT * FROM dosen WHERE nip='$old_nip'");
-
+  $result = mysqli_query($koneksi,"SELECT * FROM dosen WHERE nip='$old_nip'");
+  $result = $result -> fetch_assoc();
 }
 
 if (isset($_POST['Ubah'])) {
 
   $nama_dosen = $_POST['dosen'];
   $nip = $_POST['nip'];
-  $id = $result['login_id_login'];
+  $id =   mysqli_fetch_assoc($result['login_id_login']);
   $query = "UPDATE dosen SET
 
   nip = '$nip',
