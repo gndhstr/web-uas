@@ -141,7 +141,7 @@ if (isset($_GET['cari_akun'])) {
         </table>
         <!--Table-->
       </div>
-    </div>
+
 
     <!-- Table Dosen -->
     <div class="card mb-4">
@@ -255,5 +255,6 @@ if (isset($_GET['cari_akun'])) {
         <a href="form/tambahakun.php" class="btn btn-success m-3">Tambah Akun</a>
       </div>
     </div>
+  </div>
   </div>
 </section><!-- End About Section -->
