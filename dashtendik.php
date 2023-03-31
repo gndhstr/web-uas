@@ -32,7 +32,8 @@ if (isset($_GET['cari_ds'])) {
     AND login_id_login='$id_login'");
   }
 }
-?>
+?> 
+<!-- Halo -->
 <section id="about" class="about">
   <div class="container">
 
