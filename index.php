@@ -175,7 +175,7 @@ if (!isset($_SESSION['jabatan'])) {
           <div class="col-lg-6">
             <div class="member d-flex align-items-start">
               <div class="pic"><img
-                  src="https://cdn.discordapp.com/attachments/968176593547702322/1046089268742864996/312281267_843821256659800_4011442230263236088_n.jpg"
+                  src="assets/img/pp.jpg"
                   class="img-fluid bimo" alt=""></div>
               <div class="member-info">
                 <h4>Nurul Hikmah</h4>
