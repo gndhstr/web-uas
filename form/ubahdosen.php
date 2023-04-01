@@ -17,7 +17,7 @@ if (isset($_POST['Ubah'])) {
 
   $nama_dosen = $_POST['dosen'];
   $nip = $_POST['nip'];
-  $id =   mysqli_fetch_assoc($result['login_id_login']);
+  $id =   $result['login_id_login'];
   $query = "UPDATE dosen SET
 
   nip = '$nip',
