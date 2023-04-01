@@ -178,9 +178,9 @@ if (!isset($_SESSION['jabatan'])) {
                   src="https://cdn.discordapp.com/attachments/968176593547702322/1046089268742864996/312281267_843821256659800_4011442230263236088_n.jpg"
                   class="img-fluid bimo" alt=""></div>
               <div class="member-info">
-                <h4>Bimo Alam Syah</h4>
+                <h4>Nurul Hikmah</h4>
                 <span>Mahasiswa</span>
-                <p>NIM : 5302421076</p>
+                <p>NIM : 5302421069</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href=""><i class="ri-facebook-fill"></i></a>
@@ -213,9 +213,9 @@ if (!isset($_SESSION['jabatan'])) {
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="assets/img/pp.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Azzahra Fadhila Fakhrunnisa</h4>
+                <h4>Naila Amalia</h4>
                 <span>Mahasiswa</span>
-                <p>NIM : 5302421066</p>
+                <p>NIM : 5302421070</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href=""><i class="ri-facebook-fill"></i></a>
@@ -230,9 +230,9 @@ if (!isset($_SESSION['jabatan'])) {
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="assets/img/pp.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Lazzuardi Anwar Zidni</h4>
+                <h4>Rohmat Nugroho</h4>
                 <span>Mahasiswa</span>
-                <p>NIM : 5302421074</p>
+                <p>NIM : 5302421072</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href=""><i class="ri-facebook-fill"></i></a>
